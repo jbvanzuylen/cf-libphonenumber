@@ -24,7 +24,7 @@
 
     @param regionCode the region for which an example number is to be generated
 
-    @return a instance of this component with the generated number
+    @return a instance of this component with the generated phone number
   --->
   <cffunction name="getExampleNumber" access="public" returntype="libphonenumber.PhoneNumber" output="false">
     <cfargument name="regionCode" type="string" required="true" />
@@ -39,12 +39,12 @@
   </cffunction>
 
   <!---
-    Parses the specified string
+    Parses the specified phone number in string format
 
-    @param numberToParse the number to try to parse
+    @param numberToParse the phone number to try to parse
     @param defaultRegion the region that we are expecting the number to be from
 
-    @return a instance of this component
+    @return a instance of this component with the parsed phone number
   --->
   <cffunction name="parse" access="public" returntype="libphonenumber.PhoneNumber" output="false">
     <cfargument name="numberToParse" type="string" required="true" />
@@ -61,6 +61,10 @@
 
   <!---
     Formats the number
+
+    @param format the format in which the the phone number is to be formatted
+
+    @return the formatted phone number
   --->
   <cffunction name="format" access="public" returntype="string" output="false">
     <cfargument name="format" type="string" required="true" />
@@ -92,6 +96,20 @@
     </cfswitch>
 
     <cfreturn phoneUtil.format(getNumber(), formatEnumConstant) />
+  </cffunction>
+
+  <!--->
+    Retrieves the type of the phone number
+
+    @param number the phone number for which the type is to be queried
+
+    @return the type of the phone number
+  --->
+  <cffunction name="getNumberType" access="public" returntype="string" output="false">
+    <!--- Define local variables --->
+    <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
+
+    <cfreturn phoneUtil.getNumberType(variables.number).toString() />
   </cffunction>
 
   <!---
