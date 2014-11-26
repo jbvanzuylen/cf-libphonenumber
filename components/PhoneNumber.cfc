@@ -54,7 +54,15 @@
     <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
 
     <!--- Parse number --->
-    <cfset setNumber(phoneUtil.parse(javaCast("string", arguments.numberToParse), javaCast("string", arguments.defaultRegion))) />
+    <cftry>
+      <cfset setNumber(phoneUtil.parse(javaCast("string", arguments.numberToParse), javaCast("string", arguments.defaultRegion))) />
+
+      <!--- Handle errors --->
+      <cfcatch type="com.google.i18n.phonenumbers.NumberParseException">
+        <cfthrow type="libphonenumber.PhoneNumber"
+                 message="Unable to parse #arguments.numberToParse#" />
+      </cfcatch>
+    </cftry>
 
     <cfreturn this />
   </cffunction>
