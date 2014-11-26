@@ -109,19 +109,19 @@
     <!--- Define local variables --->
     <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
 
-    <cfreturn phoneUtil.getNumberType(variables.number).toString() />
+    <cfreturn phoneUtil.getNumberType(getNumber()).toString() />
   </cffunction>
 
   <!---
-    Checks if the phone is valid
+    Checks if the phone number is valid
 
     @return true if the phone number is valid, false otherwise
   --->
-  <cffunction name="isValid" access="public" output="false">
+  <cffunction name="isValid" access="public" returntype="boolean" output="false">
     <!--- Define local variables --->
     <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
 
-    <cfreturn phoneUtil.isValidNumber(variables.number) />
+    <cfreturn phoneUtil.isValidNumber(getNumber()) />
   </cffunction>
 
   <!---
@@ -137,6 +137,6 @@
     <!--- Define local variables --->
     <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
 
-    <cfreturn phoneUtil.isValidNumberForRegion(variables.number, javaCast("string", arguments.regionCode)) />
+    <cfreturn phoneUtil.isValidNumberForRegion(getNumber(), javaCast("string", arguments.regionCode)) />
   </cffunction>
 </cfcomponent>
