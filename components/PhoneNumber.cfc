@@ -20,6 +20,25 @@
   </cffunction>
 
   <!---
+    Generates an example phone number for the region with specified code
+
+    @param regionCode the region for which an example number is to be generated
+
+    @return a instance of this component with the generated number
+  --->
+  <cffunction name="getExampleNumber" access="public" returntype="libphonenumber.PhoneNumber" output="false">
+    <cfargument name="regionCode" type="string" required="true" />
+
+    <!--- Define local variables --->
+    <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
+
+    <!--- Parse number --->
+    <cfset setNumber(phoneUtil.getExampleNumber(javaCast("string", arguments.regionCode))) />
+
+    <cfreturn this />
+  </cffunction>
+
+  <!---
     Parses the specified string
 
     @param numberToParse the number to try to parse
