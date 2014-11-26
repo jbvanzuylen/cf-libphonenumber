@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project name="cf-libphonenumber" default="package-railo-extension" basedir=".">
+  <property name="lib.dir" value="${basedir}/lib" />
+  <property name="function.dir" value="${basedir}/functions" />
+  <property name="tag.dir" value="${basedir}/tags" />
+  <property name="component.dir" value="${basedir}/components" />
+  <property name="railo.dir" value="${basedir}/railo" />
+  <property name="build.dir" value="${basedir}/build" />
+  <property name="dist.dir" value="${basedir}/dist" />
+
+  <!-- Load other properties -->
+  <property file="build.properties" />
+
+  <target name="clean">
+    <delete dir="${build.dir}" />
+    <delete dir="${dist.dir}" />
+  </target>
+
+  <target name="init" depends="clean">
+    <mkdir dir="${build.dir}/railo" />
+    <mkdir dir="${dist.dir}" />
+  </target>
+
+  <target name="package-railo-extension" depends="init" description="Package the extension for Railo">
+    <tstamp>
+      <format property="ext.release.date" pattern="yyyy-MM-dd hh:mm:ss" />
+    </tstamp>
+    <copy todir="${build.dir}/railo-temp">
+      <fileset dir="${railo.dir}" />
+      <filterset>
+        <filter token="VERSION" value="${project.version}" />
+        <filter token="RELEASE_DATE" value="${ext.release.date}" />
+      </filterset>
+    </copy>
+    <zip destfile="${build.dir}/railo/cf-libphonenumber-ext.zip">
+      <zipfileset dir="${build.dir}/railo-temp" />
+      <zipfileset dir="${lib.dir}" includes="**/*.jar" prefix="lib" />
+      <zipfileset dir="${function.dir}" includes="**/*.cfm" prefix="functions" />
+      <zipfileset dir="${tag.dir}" includes="**/*.cfc" prefix="tags" />
+      <zipfileset dir="${component.dir}" includes="**/*.cfc" prefix="components" />
+      <zipfileset file="LICENSE" fullpath="license.txt" />
+    </zip>
+    <delete dir="${build.dir}/railo-temp" />
+  </target>
+
+  <target name="dist" depends="init, package-railo-extension">
+    <zip destfile="${dist.dir}/cf-libphonenumber-${project.version}.zip">
+      <zipfileset dir="${build.dir}/lib" includes="**/*.jar" prefix="lib" />
+      <zipfileset dir="${lib.dir}" includes="**/*.jar" prefix="lib" />
+      <zipfileset dir="${basedir}/listener" prefix="listener" />
+      <zipfileset file="${build.dir}/railo/twitter-gateway-ext.zip" prefix="railo" />
+      <zipfileset file="LICENSE" fullpath="license.txt" />
+    </zip>
+  </target>
+</project>
