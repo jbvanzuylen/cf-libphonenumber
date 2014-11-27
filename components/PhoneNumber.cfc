@@ -135,6 +135,21 @@
   </cffunction>
 
   <!---
+    Retrieves the country code of the phone number
+
+    @param number the phone number for which the country code is to be queried
+
+    @return the country code of the phone number
+  --->
+  <cffunction name="getCountryCodeForNumber" access="public" returntype="string" output="false">
+    <!--- Define local variables --->
+    <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
+    <cfset var regionCode = phoneUtil.getRegionCodeForNumber(getNumber()) />
+
+    <cfreturn phoneUtil.getCountryCodeForRegion(regionCode) />
+  </cffunction>
+
+  <!---
     Checks if the phone number is valid
 
     @return true if the phone number is valid, false otherwise
