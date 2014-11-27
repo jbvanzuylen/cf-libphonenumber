@@ -154,7 +154,7 @@
 
     @return true if the phone number is valid, false otherwise
   --->
-  <cffunction name="isValid" access="public" returntype="boolean" output="false">
+  <cffunction name="isValidNumber" access="public" returntype="boolean" output="false">
     <!--- Define local variables --->
     <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
 
@@ -168,7 +168,7 @@
 
     @return true if the phone number is valid for the given region, false otherwise
   --->
-  <cffunction name="isValidForRegion" access="public" returntype="boolean" output="false">
+  <cffunction name="isValidNumberForRegion" access="public" returntype="boolean" output="false">
     <cfargument name="regionCode" type="string" required="true" />
 
     <!--- Define local variables --->
