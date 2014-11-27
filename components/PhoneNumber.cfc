@@ -121,6 +121,20 @@
   </cffunction>
 
   <!---
+    Retrieves the region code of the phone number
+
+    @param number the phone number for which the region code is to be queried
+
+    @return the region code of the phone number
+  --->
+  <cffunction name="getRegionCodeForNumber" access="public" returntype="string" output="false">
+    <!--- Define local variables --->
+    <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
+
+    <cfreturn phoneUtil.getRegionCodeForNumber(getNumber()) />
+  </cffunction>
+
+  <!---
     Checks if the phone number is valid
 
     @return true if the phone number is valid, false otherwise
@@ -133,7 +147,7 @@
   </cffunction>
 
   <!---
-    Checks if the phone is valid for the region with specified code
+    Checks if the phone number is valid for the region with specified code
 
     @param regionCode the code of the region for validating the phone number
 
