@@ -176,4 +176,20 @@
 
     <cfreturn phoneUtil.isValidNumberForRegion(getNumber(), javaCast("string", arguments.regionCode)) />
   </cffunction>
+
+  <!---
+    Retrieves the country code of the region with specified code
+
+    @param regionCode the code of the region for which the country code is to be queried
+
+    @return the country code for the given region
+  --->
+  <cffunction name="getCountryCodeForRegion" access="public" returntype="numeric" output="false">
+    <cfargument name="regionCode" type="string" required="true" />
+
+    <!--- Define local variables --->
+    <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
+
+    <cfreturn phoneUtil.getCountryCodeForRegion(javaCast("string", arguments.regionCode)) />
+  </cffunction>
 </cfcomponent>
