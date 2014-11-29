@@ -68,7 +68,7 @@
   </cffunction>
 
   <!---
-    Formats the number
+    Formats the phone number
 
     @param format the format in which the the phone number is to be formatted
 
@@ -104,6 +104,22 @@
     </cfswitch>
 
     <cfreturn phoneUtil.format(getNumber(), formatEnumConstant) />
+  </cffunction>
+
+  <!---
+    Formats a phone number when called from the region with specified code
+
+    @param regionCallingFrom the code of the region from where the phone number is called
+
+    @return the formatted phone number
+  --->
+  <cffunction name="formatOutOfCountryCallingNumber" access="public" returntype="string" output="false">
+    <cfargument name="regionCallingFrom" type="string" output="false" />
+
+    <!--- Define local variables --->
+    <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
+
+    <cfreturn phoneUtil.formatOutOfCountryCallingNumber(getNumber(), javaCast("string", arguments.regionCallingFrom)) />
   </cffunction>
 
   <!--->
