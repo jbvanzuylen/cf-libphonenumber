@@ -32,8 +32,76 @@
     <!--- Define local variables --->
     <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
 
-    <!--- Parse number --->
+    <!--- Generate example number --->
     <cfset setNumber(phoneUtil.getExampleNumber(javaCast("string", arguments.regionCode))) />
+
+    <cfreturn this />
+  </cffunction>
+
+  <!---
+    Generates an example phone number for the region with specified code and type
+
+    @param regionCode the region for which an example number is to be generated
+    @param type the type of phone number to be generated
+
+    @return a instance of this component with the generated phone number
+  --->
+  <cffunction name="getExampleNumberForType" access="public" returntype="libphonenumber.PhoneNumber" output="false">
+    <cfargument name="regionCode" type="string" required="true" />
+    <cfargument name="type" type="string" required="true" />
+
+    <!--- Define local variables --->
+    <cfset var phoneUtil = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil").getInstance() />
+    <cfset var phoneUtilType = createObject("java", "com.google.i18n.phonenumbers.PhoneNumberUtil$PhoneNumberType") />
+    <cfset var typeEnumConstant = "" />
+
+    <!--- Map type --->
+    <cfswitch expression="#arguments.type#">
+      <cfcase value="FIXED_LINE">
+        <cfset typeEnumConstant = phoneUtilType.FIXED_LINE />
+      </cfcase>
+      <cfcase value="MOBILE">
+        <cfset typeEnumConstant = phoneUtilType.MOBILE />
+      </cfcase>
+      <cfcase value="FIXED_LINE_OR_MOBILE">
+        <cfset typeEnumConstant = phoneUtilType.FIXED_LINE_OR_MOBILE />
+      </cfcase>
+      <cfcase value="TOLL_FREE">
+        <cfset typeEnumConstant = phoneUtilType.TOLL_FREE />
+      </cfcase>
+      <cfcase value="PREMIUM_RATE">
+        <cfset typeEnumConstant = phoneUtilType.PREMIUM_RATE />
+      </cfcase>
+      <cfcase value="SHARED_COST">
+        <cfset typeEnumConstant = phoneUtilType.SHARED_COST />
+      </cfcase>
+      <cfcase value="VOIP">
+        <cfset typeEnumConstant = phoneUtilType.VOIP />
+      </cfcase>
+      <cfcase value="PERSONAL_NUMBER">
+        <cfset typeEnumConstant = phoneUtilType.PERSONAL_NUMBER />
+      </cfcase>
+      <cfcase value="PAGER">
+        <cfset typeEnumConstant = phoneUtilType.PAGER />
+      </cfcase>
+      <cfcase value="UAN">
+        <cfset typeEnumConstant = phoneUtilType.UAN />
+      </cfcase>
+      <cfcase value="VOICEMAIL">
+        <cfset typeEnumConstant = phoneUtilType.VOICEMAIL />
+      </cfcase>
+      <cfcase value="UNKNOWN">
+        <cfset typeEnumConstant = phoneUtilType.UNKNOWN />
+      </cfcase>
+      <cfdefaultcase>
+        <cfthrow type="libphonenumber.PhoneNumber"
+                 message="Invalid type"
+                 detail="Valid types are FIXED_LINE, MOBILE, FIXED_LINE_OR_MOBILE, TOLL_FREE, PREMIUM_RATE, SHARED_COST, VOIP, PERSONAL_NUMBER, PAGER, UAN, VOICEMAIL and UNKNOWN" />
+      </cfdefaultcase>
+    </cfswitch>
+
+    <!--- Generate example number --->
+    <cfset setNumber(phoneUtil.getExampleNumberForType(javaCast("string", arguments.regionCode), typeEnumConstant)) />
 
     <cfreturn this />
   </cffunction>
@@ -99,7 +167,7 @@
       <cfdefaultcase>
         <cfthrow type="libphonenumber.PhoneNumber"
                  message="Invalid format"
-                 detail="Valid image types are E164, INTERNATIONAL, NATIONAL and RFC3966" />
+                 detail="Valid formats are E164, INTERNATIONAL, NATIONAL and RFC3966" />
       </cfdefaultcase>
     </cfswitch>
 
