@@ -125,8 +125,6 @@
   <!--->
     Retrieves the type of the phone number
 
-    @param number the phone number for which the type is to be queried
-
     @return the type of the phone number
   --->
   <cffunction name="getNumberType" access="public" returntype="string" output="false">
@@ -139,8 +137,6 @@
   <!---
     Retrieves the region code of the phone number
 
-    @param number the phone number for which the region code is to be queried
-
     @return the region code of the phone number
   --->
   <cffunction name="getRegionCodeForNumber" access="public" returntype="string" output="false">
@@ -152,8 +148,6 @@
 
   <!---
     Retrieves the country code of the phone number
-
-    @param number the phone number for which the country code is to be queried
 
     @return the country code of the phone number
   --->
