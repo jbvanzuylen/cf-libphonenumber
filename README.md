@@ -1,4 +1,4 @@
 libphonenumber for Coldfusion
 =============================
 
-Wrapper around the great [libphonenumber library](https://code.google.com/p/libphonenumber/) from Google to be used in your ColdFusion applications
+Wrapper around the great [libphonenumber library](https://github.com/googlei18n/libphonenumber) from Google to be used in your ColdFusion applications
