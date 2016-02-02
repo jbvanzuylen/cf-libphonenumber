@@ -64,16 +64,6 @@
       />
     </cfloop>
 
-    <!--- Add tags --->
-    <cfset dirPath = arguments.path & "tags" />
-    <cfdirectory action="list" directory="#dirPath#" type="file" filter="*.cfc" name="dirContent">
-    <cfloop query="dirContent">
-      <cffile action="copy"
-              source="#dirPath#/#dirContent.name#"
-              destination="#serverPath#/library/tag/#dirContent.name#"
-      />
-    </cfloop>
-
     <cfreturn "#variables.name# has been successfully installed<br><br>" />
   </cffunction>
 
@@ -119,12 +109,6 @@
     <cfdirectory action="list" directory="#serverPath#/library/function" filter="*libphonenumber*" name="dirContent" />
     <cfloop query="dirContent">
       <cfset removeFile("#serverPath#/library/function/#dirContent.name#", errors) />
-    </cfloop>
-
-    <!--- Remove the tags --->
-    <cfdirectory action="list" directory="#serverPath#/library/tag" filter="*libphonenumber*" name="dirContent" />
-    <cfloop query="dirContent">
-      <cfset removeFile("#serverPath#/library/tag/#dirContent.name#", errors) />
     </cfloop>
 
     <!--- Remove the components --->

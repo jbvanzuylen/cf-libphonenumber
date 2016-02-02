@@ -2,7 +2,6 @@
 <project name="cf-libphonenumber" default="package-railo-extension" basedir=".">
   <property name="lib.dir" value="${basedir}/lib" />
   <property name="function.dir" value="${basedir}/functions" />
-  <property name="tag.dir" value="${basedir}/tags" />
   <property name="component.dir" value="${basedir}/components" />
   <property name="railo.dir" value="${basedir}/railo" />
   <property name="build.dir" value="${basedir}/build" />
@@ -36,7 +35,6 @@
       <zipfileset dir="${build.dir}/railo-temp" />
       <zipfileset dir="${lib.dir}" includes="**/*.jar" prefix="lib" />
       <zipfileset dir="${function.dir}" includes="**/*.cfm" prefix="functions" />
-      <zipfileset dir="${tag.dir}" includes="**/*.cfc" prefix="tags" />
       <zipfileset dir="${component.dir}" includes="**/*.cfc" prefix="components" />
       <zipfileset file="LICENSE" fullpath="license.txt" />
     </zip>
