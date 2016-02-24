@@ -22,6 +22,6 @@ __Install as an extension__
 __Manual installation__
 
 * Unzip the file you have downloaded above
-* Copy the `.jar` files from the `lib` folder to the `WEB-INF\railo\library\lib` directory in your web root
+* Copy the `.jar` files from the `lib` folder to the `WEB-INF\railo\lib` directory in your web root
 * Copy the `.cfm` files from the `functions` folder to the `WEB-INF\railo\library\function` directory in your web root
 * Copy the `.cfc` file from the `components` folder to the `WEB-INF\railo\components\libphonenumber` directory in your web root
