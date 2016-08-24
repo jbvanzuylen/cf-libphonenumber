@@ -5,7 +5,8 @@
   <!--- Libraries --->
   <cfset variables.libraries = array(
     "libphonenumber-7.0.1.jar",
-    "libphonenumber-7.2.4.jar"
+    "libphonenumber-7.2.4.jar",
+    "libphonenumber-7.5.2.jar"
   ) />
 
   <!---
