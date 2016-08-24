@@ -8,7 +8,7 @@ Build on top of the [libphonenumber library](https://github.com/googlei18n/libph
 
 ### Railo
 
-Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v0.2.0/cf-libphonenumber-ext.zip)
+Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v0.3.0/cf-libphonenumber-ext.zip)
 
 __Install as an extension__
 
