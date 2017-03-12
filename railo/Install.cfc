@@ -95,7 +95,7 @@
     <cfset var message = "" />
 
     <!--- Remove the libraries --->
-    <cfdirectory action="list" directory="#serverPath#/library/function" filter="*libphonenumber*.jar" name="dirContent" />
+    <cfdirectory action="list" directory="#serverPath#/lib" filter="*libphonenumber*.jar" name="dirContent" />
     <cfloop query="dirContent">
       <cfset removeFile("#serverPath#/lib/#dirContent.name#", errors) />
     </cfloop>
