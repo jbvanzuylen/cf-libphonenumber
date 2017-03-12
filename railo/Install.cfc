@@ -2,13 +2,6 @@
   <!--- Extension name --->
   <cfset variables.name = "cflibphonenumber" />
 
-  <!--- Libraries --->
-  <cfset variables.libraries = array(
-    "libphonenumber-7.0.1.jar",
-    "libphonenumber-7.2.4.jar",
-    "libphonenumber-7.5.2.jar"
-  ) />
-
   <!---
     Called from Railo to validate values
   --->
@@ -102,8 +95,9 @@
     <cfset var message = "" />
 
     <!--- Remove the libraries --->
-    <cfloop array="#variables.libraries#" index="i" item="library">
-      <cfset removeFile("#serverPath#/lib/#library#", errors) />
+    <cfdirectory action="list" directory="#serverPath#/library/function" filter="*libphonenumber*.jar" name="dirContent" />
+    <cfloop query="dirContent">
+      <cfset removeFile("#serverPath#/lib/#dirContent.name#", errors) />
     </cfloop>
 
     <!--- Remove the functions --->
