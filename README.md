@@ -1,4 +1,4 @@
-#cf-libphonenumber
+# cf-libphonenumber
 
 __A phone number processing library for Coldfusion__
 
@@ -8,7 +8,7 @@ Build on top of the [libphonenumber library](https://github.com/googlei18n/libph
 
 ### Lucee 4
 
-Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v0.4.0/cf-libphonenumber-lucee4-ext.zip)
+Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v0.5.0/cf-libphonenumber-lucee4-ext.zip)
 
 __Install as an extension__
 
@@ -28,7 +28,7 @@ __Manual installation__
 
 ### Railo
 
-Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v0.4.0/cf-libphonenumber-railo-ext.zip)
+Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v0.5.0/cf-libphonenumber-railo-ext.zip)
 
 __Install as an extension__
 
