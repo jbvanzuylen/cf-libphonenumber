@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-Date: @RELEASE_DATE@
+release-type: web
+id: "1350F2ED-5400-45AD-A2BA3955E7F66591"
+version: "@VERSION@"
+name: "cflibphonenumber"
+description: "Wrapper around the great libphonenumber library from Google to be used in your ColdFusion applications."
+author: "Jean-Bernard van Zuylen"
+start-bundles: false
