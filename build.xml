@@ -27,7 +27,11 @@
       <format property="ext.release.date" pattern="yyyy-MM-dd hh:mm:ss" />
     </tstamp>
     <copy todir="${build.dir}/lucee4-temp">
-      <fileset dir="${lucee4.dir}" />
+      <fileset dir="${lucee4.dir}">
+        <exclude name="**/*.xml" />
+      </fileset>
+    </copy>
+    <copy file="${lucee4.dir}/config.xml" toFile="${build.dir}/lucee4-temp/config.xml">
       <filterset>
         <filter token="VERSION" value="${project.version}" />
         <filter token="RELEASE_DATE" value="${ext.release.date}" />
