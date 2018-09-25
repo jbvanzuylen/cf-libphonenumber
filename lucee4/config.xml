@@ -7,7 +7,7 @@
     <label>libphonenumber for Coldfusion</label>
     <description>Wrapper around the great libphonenumber library from Google to be used in your ColdFusion applications.</description>
     <version>@VERSION@</version>
-    <image>https://raw.github.com/jbvanzuylen/cf-libphonenumber/master/railo/libphonenumber-logo.png</image>
+    <image>https://raw.github.com/jbvanzuylen/cf-libphonenumber/master/logo.png</image>
     <author>Jean-Bernard van Zuylen</author>
     <support>https://github.com/jbvanzuylen/cf-libphonenumber/issues</support>
     <created>@RELEASE_DATE@</created>

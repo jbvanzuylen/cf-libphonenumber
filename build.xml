@@ -28,7 +28,7 @@
     </tstamp>
     <copy todir="${build.dir}/lucee4-temp">
       <fileset dir="${lucee4.dir}">
-        <exclude name="**/*.xml" />
+        <exclude name="config.xml" />
       </fileset>
     </copy>
     <copy file="${lucee4.dir}/config.xml" toFile="${build.dir}/lucee4-temp/config.xml">
@@ -51,11 +51,7 @@
     <tstamp>
       <format property="ext.release.date" pattern="yyyy-MM-dd hh:mm:ss" />
     </tstamp>
-    <copy todir="${build.dir}/lucee5-temp">
-      <fileset dir="${lucee5.dir}">
-        <exclude name="**/*.MF" />
-      </fileset>
-    </copy>
+    <copy file="logo.png" todir="${build.dir}/lucee5-temp" />
     <copy file="${lucee5.dir}/MANIFEST.MF" toFile="${build.dir}/lucee5-temp/MANIFEST.MF">
       <filterset>
         <filter token="VERSION" value="${project.version}" />
