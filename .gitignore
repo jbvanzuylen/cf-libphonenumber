@@ -1,4 +1,10 @@
-.project
-build/
-dist/
+# Maven
+target/
 
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Visual Studio Code
+.vscode/
