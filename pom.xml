@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>cf-libphonenumber</groupId>
   <artifactId>cf-libphonenumber</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <properties>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
     <ext.release.date>${maven.build.timestamp}</ext.release.date>
