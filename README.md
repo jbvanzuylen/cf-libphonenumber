@@ -8,7 +8,7 @@ Build on top of the [libphonenumber library](https://github.com/googlei18n/libph
 
 ### Lucee 4
 
-Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v1.0.1/cf-libphonenumber-lucee4-ext.zip)
+Download the latest version [here](https://github.com/jbvanzuylen/cf-libphonenumber/releases/download/v1.0.2/cf-libphonenumber-lucee4-ext.zip)
 
 __Install as an extension__
 
